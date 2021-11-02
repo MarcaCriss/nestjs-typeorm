@@ -1,8 +1,11 @@
 import { Brand } from './brand.entity';
+import { Category } from './category.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -36,4 +39,8 @@ export class Product {
 
   @ManyToOne(() => Brand, (brand) => brand.products)
   brand: Brand;
+
+  @ManyToMany(() => Category, (categories) => categories.products)
+  @JoinTable()
+  categories: Category[];
 }
