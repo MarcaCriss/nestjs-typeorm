@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsPhoneNumber } from 'class-validator';
+import { IsString, IsNotEmpty } from 'class-validator';
 import { PartialType } from '@nestjs/swagger';
 
 export class CreateCustomerDto {
@@ -10,7 +10,7 @@ export class CreateCustomerDto {
   @IsNotEmpty()
   readonly lastName: string;
 
-  @IsPhoneNumber()
+  @IsString()
   @IsNotEmpty()
   readonly phone: string;
 }
